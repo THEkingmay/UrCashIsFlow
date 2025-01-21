@@ -13,7 +13,7 @@ export default function ShowInDay(){
 
     useEffect(()=>{
         const DATA = JSON.parse(localStorage.getItem('STORAGE_DATA'))||[]
-        console.log("DATA : ",DATA)
+        console.log("DATA : ",DATA.length ,"items")
         let tmpIncome =0
         let tmpExpense= 0
         DATA.forEach(data => {
@@ -30,17 +30,17 @@ export default function ShowInDay(){
     return(
         <div className="p-3  w-full">
             <div className="flex w-full px-5 pt-3 ">
-            <div className='m-2 border-2 border-red-500 rounded w-1/2 bg-red-100 p-10 flex flex-col  justify-center items-center text-red-500 '>
+            <div className='m-2 border-2 border-red-500 rounded w-1/2 bg-red-100 p-10 flex flex-col  justify-center items-center text-red-600 '>
                 <div>Expense</div>
                 <div>{expense}</div>
             </div> 
-            <div className="m-2 border-2 border-green-500  rounded w-1/2 bg-green-100 p-10  flex flex-col justify-center items-center text-green-500">
+            <div className="m-2 border-2 border-green-500  rounded w-1/2 bg-green-100 p-10  flex flex-col justify-center items-center text-green-600">
                 <div >Income</div>
                 <div>{income}</div>
             </div>
         </div>
         <div className=" p-2 w-full flex items-center justify-end mr-8 ">
-           <span className={`${sumCash<0?'text-red-500':'text-green-500'}`}> Today total : {sumCash}</span>
+           <span className={`border-b-4 ${sumCash<0?' border-red-200':' border-green-200'}`}> Today total : {sumCash}</span>
            <Link to={`/history/${currYear}/${MONTH[currMonth]}/${currDay}`}><button className="ml-3 underline">History</button></Link>
         </div>
         </div>

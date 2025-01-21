@@ -27,6 +27,10 @@ export default function Form(){
             },1500)
             return
         }
+        const currentdate = new Date();
+        const time = currentdate.getHours() + ":" 
+        + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+
         const newItem = {
             id:uuidv4(),
             description:description||'',
@@ -35,7 +39,8 @@ export default function Form(){
             selectType:selectType||'other',
             currDay,
             currMonth,
-            currYear
+            currYear,
+            time
         }
        addItem(newItem)
     }
@@ -58,7 +63,7 @@ export default function Form(){
                 <div  className={`border-t flex justify-between p-2${isExpense?'':'hidden'}`}>
                     <label className="mt-2 flex p-3" >
                          <span className="mr-2">Food</span>
-                        <input onChange={(event)=>setSelectType(event.target.value)} name="option" type="radio" className="radio checked:bg-yellow-200" value={'food'}/>
+                        <input onChange={(event)=>setSelectType(event.target.value)} name="option" type="radio" className="radio checked:bg-green-200" value={'food'}/>
                     </label>
                     <label className="mt-2 flex p-3" >
                          <span className="mr-2">Stuff</span>
@@ -66,7 +71,7 @@ export default function Form(){
                     </label>
                     <label className="mt-2 flex p-3" >
                          <span className="mr-2">Travel</span>
-                        <input  onChange={(event)=>setSelectType(event.target.value)} name="option" type="radio" className="radio checked:bg-gray-200" value={'travel'}/>
+                        <input  onChange={(event)=>setSelectType(event.target.value)} name="option" type="radio" className="radio checked:bg-orange-200" value={'travel'}/>
                     </label>
                     <label className="mt-2 flex p-3" >
                          <span className="mr-2">Other</span>

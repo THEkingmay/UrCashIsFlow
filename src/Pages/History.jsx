@@ -48,9 +48,9 @@ export default function History(){
     useEffect(()=>{
         if(selectedYear!=='Year'){
             if(selectedMonth!=='Months' && selectedMonth!=='ALL'){
-                console.log('Month selected')
+                // console.log('Month selected')
                 if(selectedDay!=='Days' && selectedDay!=='ALL'){
-                    console.log('Day selected')
+                    // console.log('Day selected')
                     setPath(`/history/${selectedYear}/${selectedMonth}/${selectedDay}`)
                     return
                 }
