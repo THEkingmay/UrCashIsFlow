@@ -4,6 +4,9 @@ import { useState,useEffect } from "react";
 function Daylist(){
     console.log("DayList rerender")
     const {year , month , day } = useParams() 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
     // const [isSee , setIsSee] = useState(false) # for 1st version
     // const [numItem , setNumItem ] = useState(0) # for 1st version
     // const getData = () =>{
@@ -189,7 +192,7 @@ function Daylist(){
             else total+=Number(d.amount)
         })
         return(
-        <span className={`mr-4 border-b-4 ${total>0?"border-green-200":"border-red-200"}` }>Total {total}</span>
+        <span className={`mr-4 border-b-4 ${total>0?"border-green-200":"border-red-200"}` }>Total in day {total}</span>
          )
     }
     const letSeeMore = (type) =>{
@@ -221,17 +224,15 @@ function Daylist(){
         }
     }
     return(
-        <div>
-            <div className=" p-1">
-                <div className="flex justify-between">
-                    <span className="underline">
-                        {day}-{month}-{year}
-                    </span>
-                    {calTotalInday()}
-                </div>
-                {checkItem()}
+        <div className=" p-1">
+            <div className="flex justify-between">
+                <span className="underline">
+                    {day}-{month}-{year}
+                </span>
+                {calTotalInday()}
             </div>
-        </div>        
+            {checkItem()}
+        </div>     
     )
 }
 export {Daylist}

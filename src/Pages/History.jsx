@@ -96,11 +96,16 @@ export default function History(){
                             </ul>
                     </div>
                     <div className=" w-full ">
-                        <Link to={PATH}><button onClick={()=>{
-                                if(selectedYear==='Year'){setWarning(true);setTimeout(() => {
-                                    setWarning(false)
-                                }, 1500);}
-                        }} className="btn btn-neutral w-full">Search</button></Link>
+                        <Link to={PATH}>
+                            <button onClick={()=>{
+                                    if(selectedYear==='Year'){
+                                        setWarning(true);
+                                        setTimeout(() => {
+                                            setWarning(false)
+                                        }, 1500);
+                                }
+                                }} className="btn btn-neutral w-full">Search</button>
+                        </Link>
                 </div>
                 </div>
             </div>
